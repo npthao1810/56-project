@@ -41,28 +41,28 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CORE-01 | TBD | Pending |
-| CORE-02 | TBD | Pending |
-| CORE-03 | TBD | Pending |
-| QUIZ-01 | TBD | Pending |
-| QUIZ-02 | TBD | Pending |
-| QUIZ-03 | TBD | Pending |
-| QUIZ-04 | TBD | Pending |
-| QUIZ-05 | TBD | Pending |
-| BINGO-01 | TBD | Pending |
-| BINGO-02 | TBD | Pending |
-| BINGO-03 | TBD | Pending |
-| BINGO-04 | TBD | Pending |
-| BINGO-05 | TBD | Pending |
-| BINGO-06 | TBD | Pending |
-| SHOP-01 | TBD | Pending |
-| SHOP-02 | TBD | Pending |
-| SHOP-03 | TBD | Pending |
+| CORE-01 | Phase 1 | Pending |
+| CORE-02 | Phase 1 | Pending |
+| CORE-03 | Phase 1 | Pending |
+| QUIZ-01 | Phase 2 | Pending |
+| QUIZ-02 | Phase 2 | Pending |
+| QUIZ-03 | Phase 2 | Pending |
+| QUIZ-04 | Phase 2 | Pending |
+| QUIZ-05 | Phase 2 | Pending |
+| BINGO-01 | Phase 2 | Pending |
+| BINGO-02 | Phase 2 | Pending |
+| BINGO-03 | Phase 2 | Pending |
+| BINGO-04 | Phase 2 | Pending |
+| BINGO-05 | Phase 2 | Pending |
+| BINGO-06 | Phase 2 | Pending |
+| SHOP-01 | Phase 3 | Pending |
+| SHOP-02 | Phase 3 | Pending |
+| SHOP-03 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 17 total
-- Mapped to phases: 0
-- Unmapped: 17 ⚠️
+- Mapped to phases: 17
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-06-02*
