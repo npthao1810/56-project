@@ -1,0 +1,83 @@
+[
+  {
+    "id": "base-camp",
+    "name": "Base Camp",
+    "cost": 20,
+    "icon": "🏕️",
+    "choiceA": {
+      "id": "base-a",
+      "title": "30-Minute Massage",
+      "description": "I will give you a full 30-minute massage anywhere you want!"
+    },
+    "choiceB": {
+      "id": "base-b",
+      "title": "Breakfast in Bed",
+      "description": "I will make your favorite breakfast and serve it to you in bed!"
+    }
+  },
+  {
+    "id": "forest-trail",
+    "name": "Forest Trail",
+    "cost": 40,
+    "icon": "🌲",
+    "choiceA": {
+      "id": "forest-a",
+      "title": "You Pick Dinner Tonight",
+      "description": "No arguments! We eat exactly what you are craving tonight."
+    },
+    "choiceB": {
+      "id": "forest-b",
+      "title": "You Pick the Weekend Activity",
+      "description": "You are the boss of this weekend. We do whatever you plan!"
+    }
+  },
+  {
+    "id": "cloud-level",
+    "name": "Cloud Level",
+    "cost": 60,
+    "icon": "☁️",
+    "choiceA": {
+      "id": "cloud-a",
+      "title": "Get out of one chore free",
+      "description": "Hand me this coupon, and I will do any one chore you don't want to do."
+    },
+    "choiceB": {
+      "id": "cloud-b",
+      "title": "I'll do your laundry for a week",
+      "description": "I take full responsibility for your laundry for 7 straight days."
+    }
+  },
+  {
+    "id": "snowy-peak",
+    "name": "Snowy Peak",
+    "cost": 80,
+    "icon": "🏔️",
+    "choiceA": {
+      "id": "snow-a",
+      "title": "Movie Night (Your Choice)",
+      "description": "You pick the movie, I provide the popcorn and snacks. No complaints!"
+    },
+    "choiceB": {
+      "id": "snow-b",
+      "title": "Game Night",
+      "description": "I will enthusiastically play any game of your choice for the whole evening."
+    }
+  },
+  {
+    "id": "the-summit",
+    "name": "The Summit",
+    "cost": 100,
+    "icon": "👑",
+    "isSecret": true,
+    "choiceA": {
+      "id": "summit-a",
+      "title": "Ultimate Date Night",
+      "description": "A fancy, fully paid, romantic date night planned entirely by me."
+    },
+    "choiceB": {
+      "id": "summit-b",
+      "title": "Weekend Getaway",
+      "description": "A fully planned weekend trip somewhere beautiful and relaxing just for us."
+    }
+  }
+]

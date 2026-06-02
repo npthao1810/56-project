@@ -1,0 +1,65 @@
+[
+  {
+    "id": "b1",
+    "country": "Vietnam",
+    "challenge": "Cook a delicious Vietnamese meal (or order Pho!)",
+    "passcode": "1111",
+    "icon": "🍜"
+  },
+  {
+    "id": "b2",
+    "country": "America",
+    "challenge": "Make me a burger and fries",
+    "passcode": "2222",
+    "icon": "🗽"
+  },
+  {
+    "id": "b3",
+    "country": "England",
+    "challenge": "Make me a perfect cup of tea with milk",
+    "passcode": "3333",
+    "icon": "☕"
+  },
+  {
+    "id": "b4",
+    "country": "Korea",
+    "challenge": "Treat me to Korean BBQ or Soju night",
+    "passcode": "4444",
+    "icon": "🍖"
+  },
+  {
+    "id": "b5",
+    "country": "Ecuador",
+    "challenge": "Dance with me to a Latin song",
+    "passcode": "5555",
+    "icon": "💃"
+  },
+  {
+    "id": "b6",
+    "country": "Argentina",
+    "challenge": "Cook me a delicious steak",
+    "passcode": "6666",
+    "icon": "🥩"
+  },
+  {
+    "id": "b7",
+    "country": "China",
+    "challenge": "Order dim sum or cook fried rice",
+    "passcode": "7777",
+    "icon": "🐉"
+  },
+  {
+    "id": "b8",
+    "country": "Hongkong",
+    "challenge": "Make or buy me an egg tart or milk tea",
+    "passcode": "8888",
+    "icon": "🧋"
+  },
+  {
+    "id": "b9",
+    "country": "Japan",
+    "challenge": "Take me out for Sushi",
+    "passcode": "9999",
+    "icon": "🗻"
+  }
+]

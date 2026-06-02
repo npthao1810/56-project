@@ -1,0 +1,82 @@
+[
+  {
+    "id": "q1",
+    "question": "Where did we go for our first date?",
+    "options": ["A coffee shop", "The movies", "A fancy restaurant", "The park"],
+    "correctIndex": 0,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q2",
+    "question": "What is my absolute favorite food?",
+    "options": ["Pizza", "Sushi", "Tacos", "Pasta"],
+    "correctIndex": 1,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q3",
+    "question": "Who said 'I love you' first?",
+    "options": ["Me!", "You!", "It happened at the same time", "My dog"],
+    "correctIndex": 1,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q4",
+    "question": "What color was the shirt you wore when we first met?",
+    "options": ["Blue", "White", "Black", "Green"],
+    "correctIndex": 2,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q5",
+    "question": "What is my biggest pet peeve?",
+    "options": ["Loud chewing", "Being late", "Leaving lights on", "Snoring"],
+    "correctIndex": 0,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q6",
+    "question": "What movie did we watch on our first movie night?",
+    "options": ["The Notebook", "Avengers", "A horror movie", "A comedy"],
+    "correctIndex": 3,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q7",
+    "question": "Where is my dream vacation destination?",
+    "options": ["Paris", "Maldives", "Tokyo", "New York"],
+    "correctIndex": 2,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q8",
+    "question": "What nickname do I call you the most?",
+    "options": ["Babe", "Honey", "Sweetie", "Love"],
+    "correctIndex": 0,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q9",
+    "question": "What was our best vacation together so far?",
+    "options": ["The beach trip", "The mountain cabin", "The city tour", "The staycation"],
+    "correctIndex": 0,
+    "points": 10,
+    "evidenceImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    "id": "q10",
+    "question": "How much do I love you?",
+    "options": ["A little", "A lot", "More than pizza", "To the moon and back"],
+    "correctIndex": 3,
+    "points": 50,
+    "evidenceImage": "https://images.unsplash.com/photo-1532667449560-72a95c8d381b?q=80&w=400&auto=format&fit=crop"
+  }
+]

@@ -6,9 +6,12 @@ We are building a vibrant, backend-free web application to celebrate a 2-year an
 
 ## Phases
 
-- [ ] **Phase 1: Foundation & Theme** - Setup Vite, TailwindCSS, and the LocalStorage state manager.
-- [ ] **Phase 2: The Core Game Loops** - Build the Quiz Engine and the Bingo Stamp Collection.
-- [ ] **Phase 3: Reward Shop & Integration** - Build the reward shop and integrate the points system.
+- [x] **Phase 1: Foundation & Theme** - Setup Vite, TailwindCSS, and the LocalStorage state manager.
+- [x] **Phase 2: The Core Game Loops** - Build the Quiz Engine and the Bingo Stamp Collection.
+- [x] **Phase 2.5: Thaibeo Pet Mechanic (INSERTED)** - Pivot the reward system to a pet-raising mechanic.
+- [x] **Phase 2.6: Thaibeo Universe Expansion (INSERTED)** - Add Thaoxinh and immersive character interactions.
+- [x] **Phase 2.7: Sidequests & Home Refinement (INSERTED)** - Add random food drops.
+- [x] **Phase 3: Reward Shop & Integration** - Build the reward shop and integrate the points system.
 
 ## Phase Details
 
@@ -42,6 +45,33 @@ Plans:
 - [ ] 02-02: Build the Bingo Grid and Passcode Validation logic
 - [ ] 02-03: Implement the time constraints and bingo-detection rewards
 
+### Phase 2.5: Thaibeo Pet Mechanic (INSERTED)
+**Goal**: Convert points into a pet-growing game featuring "thaibeo" the pig.
+**Depends on**: Phase 2
+**Requirements**: [PET-01, PET-02]
+**Success Criteria**:
+  1. Thaibeo appears on the Home Tab.
+  2. Completing quizzes/bingo increases Thaibeo's weight.
+  3. Thaibeo's SVG scales dynamically based on weight.
+**Plans**: TBD
+
+Plans:
+- [ ] 02.5-01: Build SVG Pig component and update state.
+- [ ] 02.5-02: Build Home tab and integrate.
+
+### Phase 2.6: Thaibeo Universe Expansion (INSERTED)
+**Goal**: Add Thaoxinh and integrate character interactions into Quiz and Bingo tabs.
+**Depends on**: Phase 2.5
+**Requirements**: [PET-03]
+**Success Criteria**:
+  1. Thaoxinh is created.
+  2. Avatars appear in Quiz chat and eating popup works.
+  3. Bingo tab has a progress bar with Thaibeo walking towards Thaoxinh.
+
+Plans:
+- [ ] 02.6-01: Build Thaoxinh SVG and Thaibeo backpack.
+- [ ] 02.6-02: Integrate into Quiz and Bingo.
+
 ### Phase 3: Reward Shop & Integration
 **Goal**: Allow users to spend points and finalize the application flow.
 **Depends on**: Phase 2
@@ -63,6 +93,9 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Theme | 0/3 | Not started | - |
-| 2. The Core Game Loops | 0/3 | Not started | - |
+| 1. Foundation & Theme | 3/3 | Complete | 2026-06-02 |
+| 2. The Core Game Loops | 3/3 | Complete | 2026-06-02 |
+| 2.5. Thaibeo Pet Mechanic | 2/2 | Complete | 2026-06-02 |
+| 2.6. Thaibeo Universe Expansion | 2/2 | Complete | 2026-06-02 |
+| 2.7. Sidequests & Home Refinement | 2/2 | Complete | 2026-06-02 |
 | 3. Reward Shop & Integration | 0/2 | Not started | - |
