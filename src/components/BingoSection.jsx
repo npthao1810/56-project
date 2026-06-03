@@ -200,7 +200,7 @@ export default function BingoSection({ gameState, addStamp }) {
             style={{ left: `${progressPercent}%`, transform: 'translate(-50%, -60%)' }}
           >
             <div className="w-12 h-12 flex items-center justify-center drop-shadow-md">
-              <Thaibeo scale={0.4} hasBackpack={true} />
+              <Thaibeo weight={gameState.weight} scale={0.4} hasBackpack={true} />
             </div>
           </div>
 

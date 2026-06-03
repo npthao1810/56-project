@@ -2,56 +2,56 @@
   {
     "id": "b1",
     "country": "Vietnam",
-    "challenge": "Cook a delicious Vietnamese meal (or order Pho!)",
-    "passcode": "1111",
+    "challenge": "Post a pic with Thaoxinh on IG",
+    "passcode": "2603",
     "icon": "🍜"
   },
   {
     "id": "b2",
     "country": "America",
-    "challenge": "Make me a burger and fries",
-    "passcode": "2222",
+    "challenge": "Choose a movie to watch with Thaoxinh tonight",
+    "passcode": "2604",
     "icon": "🗽"
   },
   {
     "id": "b3",
     "country": "England",
-    "challenge": "Make me a perfect cup of tea with milk",
-    "passcode": "3333",
-    "icon": "☕"
+    "challenge": "Make a promise for do Thaoxinh next time Thaoxinh doi - in text",
+    "passcode": "0905",
+    "icon": "⚽️"
   },
   {
     "id": "b4",
     "country": "Korea",
-    "challenge": "Treat me to Korean BBQ or Soju night",
+    "challenge": "Treat Thaoxinh to sushi night - need reservation to be evidence",
     "passcode": "4444",
-    "icon": "🍖"
+    "icon": "🍂"
   },
   {
     "id": "b5",
     "country": "Ecuador",
-    "challenge": "Dance with me to a Latin song",
+    "challenge": "20 minutes back massage for Thaoxinh",
     "passcode": "5555",
-    "icon": "💃"
+    "icon": "🗻"
   },
   {
     "id": "b6",
     "country": "Argentina",
-    "challenge": "Cook me a delicious steak",
+    "challenge": "Buy Thaoxinh a BOUQUET of flowers",
     "passcode": "6666",
-    "icon": "🥩"
+    "icon": "🎒"
   },
   {
     "id": "b7",
     "country": "China",
-    "challenge": "Order dim sum or cook fried rice",
+    "challenge": "Surprise text 'I miss you' to Thaoxinh",
     "passcode": "7777",
-    "icon": "🐉"
+    "icon": "🥟"
   },
   {
     "id": "b8",
     "country": "Hongkong",
-    "challenge": "Make or buy me an egg tart or milk tea",
+    "challenge": "Order lunch for Thaoxinh",
     "passcode": "8888",
     "icon": "🧋"
   },
@@ -60,6 +60,6 @@
     "country": "Japan",
     "challenge": "Take me out for Sushi",
     "passcode": "9999",
-    "icon": "🗻"
+    "icon": "🗼"
   }
 ]

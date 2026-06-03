@@ -76,7 +76,7 @@ export default function MountainSection({ gameState, claimReward }) {
           <div className="relative w-16 h-16 bg-white rounded-full border-4 border-pink-400 shadow-xl flex items-center justify-center animate-bounce">
             {/* Tiny backpack Thaibeo */}
             <div className="scale-[0.35]">
-              <Thaibeo hasBackpack={true} />
+              <Thaibeo weight={gameState.weight} hasBackpack={true} />
             </div>
             
             {/* Tooltip */}

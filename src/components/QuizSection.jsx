@@ -139,7 +139,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
           {/* Couple SVG instead of Heart */}
           <div className="flex items-end justify-center w-full pb-2 relative z-10 scale-125 mb-4">
             <div className="-mr-4 z-20">
-              <Thaibeo scale={0.6} showName={false} />
+              <Thaibeo weight={gameState.weight} scale={0.6} showName={false} />
             </div>
             <div className="z-10">
               <Thaoxinh scale={0.6} showName={false} />
@@ -174,7 +174,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
                   {msg.sender === 'system' ? (
                      <Thaoxinh scale={0.4} />
                   ) : (
-                     <Thaibeo scale={0.4} />
+                     <Thaibeo weight={gameState.weight} scale={0.4} />
                   )}
                 </div>
                 
@@ -239,7 +239,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
             DELICIOUS!
           </h2>
           <div className="scale-150 mb-8 drop-shadow-2xl">
-            <Thaibeo scale={1} isEating={true} />
+            <Thaibeo weight={gameState.weight} scale={1} isEating={true} />
           </div>
           <div className="bg-green-500 text-white font-black text-2xl px-6 py-2 rounded-full shadow-lg border-4 border-white animate-[pulse_1s_ease-in-out_infinite]">
             +10 KG

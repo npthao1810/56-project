@@ -8,7 +8,7 @@ import SidequestSpawner from './components/SidequestSpawner';
 import { Home, Heart, CheckSquare, Map } from 'lucide-react';
 
 function App() {
-  const { gameState, completeQuiz, addStamp, getPigScale, canEatSidequestFood, feedSidequestFood, claimReward } = useGameState();
+  const { gameState, completeQuiz, addStamp, canEatSidequestFood, feedSidequestFood, claimReward } = useGameState();
   const [activeTab, setActiveTab] = useState('home');
 
   return (
@@ -37,7 +37,7 @@ function App() {
       <main className="max-w-md mx-auto p-4 animate-in slide-in-from-bottom-4 duration-500 pb-24">
         {activeTab === 'home' && (
           <div className="transition-all duration-500">
-            <HomeSection gameState={gameState} getPigScale={getPigScale} />
+            <HomeSection gameState={gameState} />
           </div>
         )}
 

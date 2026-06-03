@@ -139,12 +139,6 @@ export function useGameState() {
     setGameState(defaultState);
   };
 
-  // Helper to determine scale factor based on weight
-  const getPigScale = () => {
-    const scale = 1 + ((gameState.weight - 10) / 200);
-    return Math.min(Math.max(scale, 1), 3); // Max scale 3x
-  };
-
   return {
     gameState,
     addWeight,
@@ -153,7 +147,6 @@ export function useGameState() {
     feedSidequestFood,
     canEatSidequestFood,
     claimReward,
-    resetGame,
-    getPigScale
+    resetGame
   };
 }
