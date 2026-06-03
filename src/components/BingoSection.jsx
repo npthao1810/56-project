@@ -239,7 +239,7 @@ export default function BingoSection({ gameState, addStamp }) {
                 <button 
                   onClick={() => {
                     setSelectedSquare(null);
-                    document.querySelector('button:has(.lucide-home)')?.click();
+                    document.getElementById('nav-home-btn')?.click();
                   }}
                   className="w-full bg-gradient-to-r from-green-500 to-emerald-400 hover:from-green-600 hover:to-emerald-500 text-white font-bold py-3.5 px-4 rounded-2xl transition-all shadow-lg shadow-green-200 border border-green-400 active:scale-95"
                 >

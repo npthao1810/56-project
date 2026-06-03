@@ -48,13 +48,14 @@ export function useGameState() {
     }));
   };
 
-  const completeQuiz = (quizId, rewardWeight) => {
+  const completeQuiz = (quizId, rewardWeight, isCorrect = false) => {
     setGameState(prev => {
       if (prev.completedQuizzes.includes(quizId)) return prev;
       return {
         ...prev,
         completedQuizzes: [...prev.completedQuizzes, quizId],
-        weight: parseFloat((prev.weight + rewardWeight).toFixed(2))
+        weight: parseFloat((prev.weight + rewardWeight).toFixed(2)),
+        quizScore: (prev.quizScore !== undefined ? prev.quizScore : prev.completedQuizzes.length) + (isCorrect ? 1 : 0)
       };
     });
   };

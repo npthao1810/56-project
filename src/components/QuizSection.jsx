@@ -9,7 +9,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  const [showEatingPopup, setShowEatingPopup] = useState(false);
+  const [showCorrectPopup, setShowCorrectPopup] = useState(false);
   const [showWrongPopup, setShowWrongPopup] = useState(false);
   const [wrongPopupData, setWrongPopupData] = useState({ msg: "", img: "" });
   const [wrongStreak, setWrongStreak] = useState(0);
@@ -64,18 +64,10 @@ export default function QuizSection({ gameState, completeQuiz }) {
           { sender: 'system', text: currentQuiz.evidenceImage, isImage: true }
         ]);
         
-        // Trigger Eating Popup
+        // Trigger Correct Popup
         setTimeout(() => {
-          setShowEatingPopup(true);
+          setShowCorrectPopup(true);
         }, 1500);
-
-        // Hide eating popup and complete quiz after a few seconds
-        setTimeout(() => {
-          setShowEatingPopup(false);
-          completeQuiz(currentQuiz.id, currentQuiz.points || 10);
-          setHasStarted(false); // Reset to start screen
-          setMessages([]);
-        }, 4500);
       } else {
         // Wrong
         const newStreak = wrongStreak + 1;
@@ -103,7 +95,14 @@ export default function QuizSection({ gameState, completeQuiz }) {
 
   const handleDismissWrongPopup = () => {
     setShowWrongPopup(false);
-    completeQuiz(currentQuiz.id, 0);
+    completeQuiz(currentQuiz.id, 0, false);
+    setHasStarted(false);
+    setMessages([]);
+  };
+
+  const handleDismissCorrectPopup = () => {
+    setShowCorrectPopup(false);
+    completeQuiz(currentQuiz.id, currentQuiz.points || 10, true);
     setHasStarted(false);
     setMessages([]);
   };
@@ -111,12 +110,30 @@ export default function QuizSection({ gameState, completeQuiz }) {
   const currentQuiz = activeQuizIndex !== -1 ? quizzes[activeQuizIndex] : null;
   const startButtonText = gameState.completedQuizzes.length === 0 ? "Begin the Trial" : "Next Question";
   
-  const correctCount = gameState.completedQuizzes.length;
+  const correctCount = gameState.quizScore !== undefined ? gameState.quizScore : gameState.completedQuizzes.length;
   const maxQuestions = quizzes.length;
   const maxGap = 120; // Starting gap
   const minGap = -40; // Final gap (overlapping slightly)
   const progress = correctCount / maxQuestions;
   const marginPx = maxGap - (progress * (maxGap - minGap));
+
+  let finalTitle = "";
+  let finalMessage = "";
+  if (activeQuizIndex === -1) {
+    if (correctCount < 5) {
+      finalTitle = "Verification Failed!";
+      finalMessage = "You need to give Thaoxinh 1M to continue! 💸";
+    } else if (correctCount >= 5 && correctCount <= 7) {
+      finalTitle = "Suspicious...";
+      finalMessage = "I doubt you are Thaoxinh's boyfriend... but I'll pretend not to notice. 👀";
+    } else if (correctCount >= 8 && correctCount <= 9) {
+      finalTitle = "Almost Perfect!";
+      finalMessage = "OK, but your score should be greater! 😤";
+    } else {
+      finalTitle = "Identity Verified! 💕";
+      finalMessage = "Verify successfully. Are you a hacker?! 😲";
+    }
+  }
 
   return (
     <div className="flex flex-col h-[600px] max-h-[70vh] bg-[#FFFAF0] bg-[url('https://www.transparenttextures.com/patterns/beige-paper.png')] rounded-2xl overflow-hidden border-2 border-amber-200 shadow-lg relative">
@@ -156,12 +173,12 @@ export default function QuizSection({ gameState, completeQuiz }) {
           </div>
 
           <h3 className="text-xl font-bold text-slate-800 mb-2 font-serif">
-            {activeQuizIndex !== -1 ? "The Boyfriend Verification Trial!" : "Identity Verified! 💕"}
+            {activeQuizIndex !== -1 ? "The Boyfriend Verification Trial!" : finalTitle}
           </h3>
           <p className="text-sm text-slate-500 mb-8 font-medium">
             {activeQuizIndex !== -1 
               ? "Answer correctly to prove your identity, bring them closer, and feed Thaibeo +10 kg!" 
-              : "You are her true love! You may now travel the world to meet her! 🎉"}
+              : finalMessage}
           </p>
 
           {activeQuizIndex !== -1 ? (
@@ -173,7 +190,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
             </button>
           ) : (
             <button 
-              onClick={() => document.querySelector('button:has(.lucide-home)')?.click()}
+              onClick={() => document.getElementById('nav-home-btn')?.click()}
               className="bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold py-3.5 px-8 rounded-2xl shadow-lg hover:shadow-pink-200 transition-all border border-pink-600 animate-bounce active:scale-95"
             >
               View Thaibeo 🐷
@@ -249,17 +266,51 @@ export default function QuizSection({ gameState, completeQuiz }) {
         </>
       )}
 
-      {/* Massive Eating Popup Overlay */}
-      {showEatingPopup && (
-        <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center animate-in fade-in duration-300">
-          <h2 className="text-4xl font-black text-white drop-shadow-lg mb-8 animate-bounce">
-            DELICIOUS!
-          </h2>
-          <div className="scale-150 mb-8 drop-shadow-2xl">
-            <Thaibeo weight={gameState.weight} scale={1} isEating={true} />
-          </div>
-          <div className="bg-green-500 text-white font-black text-2xl px-6 py-2 rounded-full shadow-lg border-4 border-white animate-[pulse_1s_ease-in-out_infinite]">
-            +10 KG
+      {/* Correct Answer Popup Overlay */}
+      {showCorrectPopup && (
+        <div className="absolute inset-0 z-50 bg-green-900/90 backdrop-blur-md flex flex-col items-center justify-center p-6 animate-in zoom-in-95 duration-200">
+          
+          <div className="bg-white rounded-3xl p-6 shadow-2xl w-full max-w-sm flex flex-col items-center text-center animate-bounce" style={{ animationIterationCount: 3 }}>
+            
+            {/* Happy Princess */}
+            <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center border-4 border-green-500 shadow-inner mb-4 relative overflow-hidden">
+               <div className="scale-125 translate-y-2">
+                 <Thaoxinh scale={0.8} isHappy={true} />
+               </div>
+            </div>
+
+            <h2 className="text-2xl font-black text-green-600 mb-2 uppercase tracking-tight">
+              Correct!
+            </h2>
+            
+            <p className="text-slate-700 font-bold mb-4 whitespace-pre-wrap leading-relaxed">
+              That's exactly right! 😍
+            </p>
+
+            {currentQuiz?.evidenceImage && (
+              <div className="relative p-1 bg-green-100 rounded-xl overflow-hidden w-full mb-4">
+                <img 
+                  src={currentQuiz.evidenceImage} 
+                  alt="Evidence" 
+                  className="rounded-lg w-full h-40 object-cover opacity-90"
+                />
+                <div className="absolute inset-0 border-4 border-green-500/50 rounded-lg pointer-events-none"></div>
+                <div className="absolute -bottom-2 -right-2 text-6xl opacity-50 rotate-[15deg]">
+                  ✅
+                </div>
+              </div>
+            )}
+            
+            <div className="bg-pink-500 text-white font-black text-xl px-6 py-2 rounded-full shadow-lg border-4 border-white animate-[pulse_1s_ease-in-out_infinite] mb-4">
+              +10 KG for Thaibeo!
+            </div>
+            
+            <button 
+              onClick={handleDismissCorrectPopup}
+              className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-[0_4px_0_0_rgb(22,163,74)] active:translate-y-[4px] active:shadow-none"
+            >
+              Continue Trial
+            </button>
           </div>
         </div>
       )}

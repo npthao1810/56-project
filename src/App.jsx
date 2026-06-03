@@ -99,6 +99,7 @@ function App() {
         <div className="max-w-md mx-auto flex justify-between items-center relative">
           
           <button 
+            id="nav-home-btn"
             onClick={() => setActiveTab('home')}
             className={`flex flex-col items-center justify-center p-2 rounded-2xl flex-1 transition-all duration-300 ${activeTab === 'home' ? 'text-pink-600 bg-pink-50' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-600'}`}
           >
