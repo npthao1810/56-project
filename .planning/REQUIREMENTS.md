@@ -30,6 +30,13 @@
 - [ ] **SHOP-02**: Allow user to purchase coupons by deducting earned points.
 - [ ] **SHOP-03**: Display an inventory of purchased coupons.
 
+### Part 4: Final Polish & User Journey
+- [ ] **POLISH-01**: Fix Thaoxinh shadow positioning to match Thaibeo on Home and Quiz tabs.
+- [ ] **POLISH-02**: Implement dynamic character spacing in the Quiz tab based on correct answers, concluding with a cute CTA when fully merged.
+- [ ] **POLISH-03**: Create an Introduction Story summarizing the premise (raising Thaibeo for the mountain climb).
+- [ ] **POLISH-04**: Add cross-tab navigation buttons (e.g., "Raise by Quiz", "Collect Stamps") to link activities smoothly.
+- [ ] **POLISH-05**: Reorder the default tab flow to show the Mountain tab first, framing it as the primary goal.
+
 ## Out of Scope
 
 | Feature | Reason |
@@ -55,14 +62,19 @@
 | BINGO-04 | Phase 2 | Pending |
 | BINGO-05 | Phase 2 | Pending |
 | BINGO-06 | Phase 2 | Pending |
-| SHOP-01 | Phase 3 | Pending |
-| SHOP-02 | Phase 3 | Pending |
-| SHOP-03 | Phase 3 | Pending |
+| SHOP-01 | Phase 3 | Complete |
+| SHOP-02 | Phase 3 | Complete |
+| SHOP-03 | Phase 3 | Complete |
+| POLISH-01 | TBD | Pending |
+| POLISH-02 | TBD | Pending |
+| POLISH-03 | TBD | Pending |
+| POLISH-04 | TBD | Pending |
+| POLISH-05 | TBD | Pending |
 
 **Coverage:**
-- v1 requirements: 17 total
+- v1 requirements: 22 total
 - Mapped to phases: 17
-- Unmapped: 0 ✓
+- Unmapped: 5
 
 ---
 *Requirements defined: 2026-06-02*
