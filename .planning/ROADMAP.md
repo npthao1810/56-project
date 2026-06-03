@@ -12,6 +12,7 @@ We are building a vibrant, backend-free web application to celebrate a 2-year an
 - [x] **Phase 2.6: Thaibeo Universe Expansion (INSERTED)** - Add Thaoxinh and immersive character interactions.
 - [x] **Phase 2.7: Sidequests & Home Refinement (INSERTED)** - Add random food drops.
 - [x] **Phase 3: Reward Shop & Integration** - Build the reward shop and integrate the points system.
+- [ ] **Phase 4: Final Polish & User Journey** - Fix visual bugs, dynamic character spacing, intro story, and tab flow.
 
 ## Phase Details
 
@@ -86,10 +87,24 @@ Plans:
 - [ ] 03-01: Build the Reward Shop UI and purchase logic
 - [ ] 03-02: Final integration testing and polish
 
+### Phase 4: Final Polish & User Journey
+**Goal**: Polish visual bugs, refine interactive elements, and weave the application tabs into a cohesive story with an introduction.
+**Depends on**: Phase 3
+**Requirements**: [POLISH-01, POLISH-02, POLISH-03, POLISH-04, POLISH-05]
+**Success Criteria**:
+  1. Thaoxinh's shadow is properly positioned on Home and Quiz tabs.
+  2. Characters in Quiz tab move closer together based on correct answers, ending with a CTA.
+  3. The Mountain tab is the default landing tab, overlaid with an introduction story modal.
+  4. Cross-tab navigation buttons are added to link the story and activities.
+
+Plans:
+- [ ] 04-01: Fix shadow bugs and implement Quiz tab dynamic character spacing + CTA.
+- [ ] 04-02: Create intro story modal, reorder tabs, and add cross-tab navigation buttons.
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3
+Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -98,4 +113,6 @@ Phases execute in numeric order: 1 → 2 → 3
 | 2.5. Thaibeo Pet Mechanic | 2/2 | Complete | 2026-06-02 |
 | 2.6. Thaibeo Universe Expansion | 2/2 | Complete | 2026-06-02 |
 | 2.7. Sidequests & Home Refinement | 2/2 | Complete | 2026-06-02 |
+| 3. Reward Shop & Integration | 2/2 | Complete | 2026-06-02 |
+| 4. Final Polish & User Journey | 0/2 | Pending | - |
 | 3. Reward Shop & Integration | 0/2 | Not started | - |
