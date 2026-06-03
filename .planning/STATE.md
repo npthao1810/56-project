@@ -9,12 +9,11 @@ See: .planning/PROJECT.md (updated 2026-06-02)
 
 ## Current Position
 
-Phase: 3 of 3 (Reward Shop & Integration)
-Plan: 0 of 0 in current phase
-Status: Ready to plan
-Last activity: 2026-06-02 — Completed Phase 3 (The Reward Mountain)
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-06-03 — Milestone v1.1 started
 
-Progress: [██████████] 100%
 
 ## Performance Metrics
 

@@ -55,3 +55,12 @@ A fun, romantic, and engaging experience that seamlessly blends digital interact
 
 ---
 *Last updated: 2026-06-02 after initialization*
+## Current Milestone: v1.1 Final Polish & User Journey
+
+**Goal:** Polish visual bugs, refine interactive elements, and weave the application tabs into a cohesive story with an introduction.
+
+**Target features:**
+- Fix Thaoxinh shadow positioning.
+- Dynamic character spacing on Quiz tab based on progress + CTA.
+- Introduction story with calls to action linking the tabs.
+- Reorder tabs to show Mountain first as the primary goal tracker.
