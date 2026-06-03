@@ -109,57 +109,74 @@ export default function QuizSection({ gameState, completeQuiz }) {
   };
 
   const currentQuiz = activeQuizIndex !== -1 ? quizzes[activeQuizIndex] : null;
-  const startButtonText = gameState.completedQuizzes.length === 0 ? "Start Today's Quiz" : "Next Question";
+  const startButtonText = gameState.completedQuizzes.length === 0 ? "Begin the Trial" : "Next Question";
+  
+  const correctCount = gameState.completedQuizzes.length;
+  const maxQuestions = quizzes.length;
+  const maxGap = 120; // Starting gap
+  const minGap = -40; // Final gap (overlapping slightly)
+  const progress = correctCount / maxQuestions;
+  const marginPx = maxGap - (progress * (maxGap - minGap));
 
   return (
-    <div className="flex flex-col h-[600px] max-h-[70vh] bg-pink-50 rounded-2xl overflow-hidden border border-pink-200 shadow-sm relative">
+    <div className="flex flex-col h-[600px] max-h-[70vh] bg-[#FFFAF0] bg-[url('https://www.transparenttextures.com/patterns/beige-paper.png')] rounded-2xl overflow-hidden border-2 border-amber-200 shadow-lg relative">
       
-      {/* Progress Header */}
-      <div className="bg-white px-4 py-2 border-b border-pink-100 flex flex-col items-center z-10">
-        <span className="text-xs font-bold text-pink-400 mb-1">
-          {gameState.completedQuizzes.length} / {quizzes.length} Completed
-        </span>
-        <div className="flex gap-1">
-          {quizzes.map((q, idx) => (
-            <Heart 
-              key={idx} 
-              className={`w-4 h-4 transition-all duration-300 ${
-                gameState.completedQuizzes.includes(q.id) 
-                  ? 'fill-pink-500 text-pink-500 scale-110' 
-                  : 'fill-slate-100 text-slate-200'
-              }`} 
-            />
-          ))}
-        </div>
-      </div>
+      {/* Top Header removed to link hearts closer to characters */}
 
       {!hasStarted ? (
         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-500">
           
-          {/* Couple SVG instead of Heart */}
-          <div className="flex items-end justify-center w-full pb-2 relative z-10 scale-125 mb-4">
-            <div className="-mr-4 z-20">
-              <Thaibeo weight={gameState.weight} scale={0.6} showName={false} />
+          {/* Couple SVG */}
+          <div className="flex items-end justify-center w-full pb-2 relative z-10 scale-[0.75] mb-2 transition-all duration-1000 ease-in-out">
+            <div className="z-20 transition-all duration-1000 ease-in-out" style={{ marginRight: `${marginPx}px` }}>
+              <Thaibeo weight={gameState.weight} scale={1} showName={false} />
             </div>
-            <div className="z-10">
-              <Thaoxinh scale={0.6} showName={false} />
+            <div className="z-10 transition-all duration-1000 ease-in-out">
+              <Thaoxinh scale={1} showName={false} />
             </div>
           </div>
 
-          <h3 className="text-xl font-bold text-slate-800 mb-2">
-            {activeQuizIndex !== -1 ? "Ready for a memory challenge?" : "You did it!"}
+          {/* Progress Hearts Linked to Characters */}
+          <div className="flex flex-col items-center mb-8 bg-white/60 px-6 py-2 rounded-full shadow-sm border border-pink-100">
+            <div className="flex gap-2 mb-1">
+              {quizzes.map((q, idx) => (
+                <Heart 
+                  key={idx} 
+                  className={`w-5 h-5 transition-all duration-300 ${
+                    gameState.completedQuizzes.includes(q.id) 
+                      ? 'fill-pink-500 text-pink-500 scale-110 animate-pulse' 
+                      : 'fill-slate-100 text-slate-200'
+                  }`} 
+                />
+              ))}
+            </div>
+            <span className="text-xs font-bold text-pink-400">
+              {gameState.completedQuizzes.length} / {quizzes.length} Hearts Collected
+            </span>
+          </div>
+
+          <h3 className="text-xl font-bold text-slate-800 mb-2 font-serif">
+            {activeQuizIndex !== -1 ? "The Boyfriend Verification Trial!" : "Identity Verified! 💕"}
           </h3>
-          <p className="text-slate-500 mb-6 text-sm">
+          <p className="text-sm text-slate-500 mb-8 font-medium">
             {activeQuizIndex !== -1 
-              ? "Join the quiz to test your memory and feed Thaibeo!" 
-              : "You've completed all available quizzes! Come back later for more."}
+              ? "Answer correctly to prove your identity, bring them closer, and feed Thaibeo +10 kg!" 
+              : "You are her true love! You may now travel the world to meet her! 🎉"}
           </p>
-          {activeQuizIndex !== -1 && (
+
+          {activeQuizIndex !== -1 ? (
             <button 
               onClick={handleStartQuiz}
-              className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-md transition-transform hover:scale-105 active:scale-95"
+              className="bg-pink-500 text-white font-bold py-3.5 px-8 rounded-2xl shadow-md hover:bg-pink-600 transition-colors border border-pink-600 active:scale-95"
             >
-              {startButtonText}
+              {gameState.completedQuizzes.length === 0 ? "Start Verification" : "Next Question"}
+            </button>
+          ) : (
+            <button 
+              onClick={() => document.querySelector('button:has(.lucide-home)')?.click()}
+              className="bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold py-3.5 px-8 rounded-2xl shadow-lg hover:shadow-pink-200 transition-all border border-pink-600 animate-bounce active:scale-95"
+            >
+              View Thaibeo 🐷
             </button>
           )}
         </div>
@@ -209,14 +226,14 @@ export default function QuizSection({ gameState, completeQuiz }) {
           </div>
 
           {/* Input Area (Options) */}
-          <div className="bg-white p-3 border-t border-pink-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] relative z-20">
+          <div className="bg-white/80 backdrop-blur-sm p-3 border-t border-amber-200 shadow-[0_-4px_6px_-1px_rgba(251,191,36,0.1)] relative z-20">
             {currentQuiz && !isTyping && !isRevealing && (
                <div className="grid grid-cols-1 gap-2">
                  {currentQuiz.options.map((option, idx) => (
                    <button 
                      key={idx}
                      onClick={() => handleAnswer(idx, option)}
-                     className="w-full text-left bg-pink-50 hover:bg-pink-100 text-pink-700 px-4 py-3 rounded-xl text-sm font-medium transition-colors border border-pink-200"
+                     className="w-full text-left bg-[#FFFAF0] hover:bg-amber-50 text-amber-900 px-4 py-3 rounded-xl text-sm font-medium transition-colors border border-amber-200 shadow-sm"
                    >
                      {option}
                    </button>

@@ -5,21 +5,43 @@ import QuizSection from './components/QuizSection';
 import BingoSection from './components/BingoSection';
 import MountainSection from './components/MountainSection';
 import SidequestSpawner from './components/SidequestSpawner';
+import IntroModal from './components/IntroModal';
 import { Home, Heart, CheckSquare, Map } from 'lucide-react';
 
 function App() {
   const { gameState, completeQuiz, addStamp, canEatSidequestFood, feedSidequestFood, claimReward } = useGameState();
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('mountain');
+  
+  // Intro modal logic
+  const [showIntro, setShowIntro] = useState(() => {
+    return localStorage.getItem('hasSeenIntro') !== 'true';
+  });
+
+  const handleCloseIntro = () => {
+    localStorage.setItem('hasSeenIntro', 'true');
+    setShowIntro(false);
+  };
+
+  const handleIntroNavigate = (tab) => {
+    handleCloseIntro();
+    setActiveTab(tab);
+  };
 
   return (
-    <div className="min-h-screen pb-20 font-sans">
+    <div className="min-h-screen pb-20 font-serif">
       <SidequestSpawner canEatSidequestFood={canEatSidequestFood} feedSidequestFood={feedSidequestFood} />
       
+      <IntroModal 
+        isOpen={showIntro} 
+        onClose={handleCloseIntro}
+        onNavigate={handleIntroNavigate} 
+      />
+
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-pink-100 shadow-sm">
+      <header className="bg-white/60 backdrop-blur-xl sticky top-0 z-50 border-b border-pink-200/50 shadow-sm">
         <div className="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex flex-col">
-            <h1 className="text-xl font-extrabold bg-gradient-to-r from-pink-500 to-rose-400 bg-clip-text text-transparent tracking-tight">
+            <h1 className="text-xl font-extrabold bg-gradient-to-r from-pink-500 to-rose-400 bg-clip-text text-transparent tracking-tight font-serif">
               Anniversary Quest
             </h1>
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
@@ -44,8 +66,8 @@ function App() {
         {activeTab === 'quiz' && (
           <div className="transition-all duration-500">
             <div className="text-center mb-4">
-              <h2 className="text-2xl font-bold text-slate-800 mb-1">Memory Challenge 🧠</h2>
-              <p className="text-slate-500 text-sm">Answer correctly to feed Thaibeo!</p>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1 font-serif">Trials of Memory 🧠</h2>
+              <p className="text-slate-500 text-sm font-medium">Prove your memory to feed Thaibeo!</p>
             </div>
             <QuizSection gameState={gameState} completeQuiz={completeQuiz} />
           </div>
@@ -54,8 +76,8 @@ function App() {
         {activeTab === 'bingo' && (
           <div className="transition-all duration-500">
             <div className="text-center mb-4">
-              <h2 className="text-2xl font-bold text-slate-800 mb-1">Real-Life Bingo 🗺️</h2>
-              <p className="text-slate-500 text-sm">Complete challenges to collect stamps!</p>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1 font-serif">Deeds of Valor 🗺️</h2>
+              <p className="text-slate-500 text-sm font-medium">Complete real-life deeds to earn massive feasts!</p>
             </div>
             <BingoSection gameState={gameState} addStamp={addStamp} />
           </div>
@@ -64,8 +86,8 @@ function App() {
         {activeTab === 'mountain' && (
           <div className="transition-all duration-500">
             <div className="text-center mb-4">
-              <h2 className="text-2xl font-bold text-slate-800 mb-1">Mountain Climb 🏔️</h2>
-              <p className="text-slate-500 text-sm">Reach the peak to claim rewards!</p>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1 font-serif">The Great Mountain 🏔️</h2>
+              <p className="text-slate-500 text-sm font-medium">Help Thaibeo carry the Princess to the top!</p>
             </div>
             <MountainSection gameState={gameState} claimReward={claimReward} />
           </div>

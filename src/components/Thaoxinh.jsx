@@ -19,7 +19,7 @@ export default function Thaoxinh({ className = "", scale = 1, isHappy = false, i
         className={isHappy ? "animate-bounce" : ""}
       >
         {/* Shadow */}
-        <ellipse cx="100" cy="180" rx="55" ry="8" fill="rgba(0,0,0,0.1)" />
+        <ellipse cx="100" cy="195" rx="55" ry="8" fill="rgba(0,0,0,0.1)" />
 
         {/* Hair Back */}
         <circle cx="100" cy="120" r="75" fill="#475569" />

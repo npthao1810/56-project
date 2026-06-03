@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-brand-pink: #ff69b4;
   --color-brand-green: #4ade80;
+  --font-serif: 'Playfair Display', serif;
 }
 
 @layer base {
   body {
-    background-color: var(--color-pink-50, #fdf2f8);
+    background-color: #fdf2f8;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-attachment: fixed;
     color: var(--color-slate-800, #1e293b);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

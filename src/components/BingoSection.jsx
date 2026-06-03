@@ -54,7 +54,7 @@ export default function BingoSection({ gameState, addStamp }) {
 
   const handleVerify = () => {
     if (passcode === selectedSquare.passcode) {
-      setSuccessMsg(`Correct! You've claimed the stamp for ${selectedSquare.country}! ✈️`);
+      setSuccessMsg(`Correct! You've arrived in ${selectedSquare.country}! ✈️`);
       
       // Calculate bonuses
       const oldStamps = gameState.stamps;
@@ -90,12 +90,9 @@ export default function BingoSection({ gameState, addStamp }) {
       }
 
       addStamp(selectedSquare.id, totalReward);
-      
-      setTimeout(() => {
-        setSelectedSquare(null);
-      }, 2000);
+      // Removed auto-close timeout so user can read the success message and click CTA
     } else {
-      setErrorMsg("Incorrect passcode! 🥺 Try again.");
+      setErrorMsg("Incorrect passcode! The magic words elude you. 🥺 Try again.");
     }
   };
 
@@ -110,16 +107,16 @@ export default function BingoSection({ gameState, addStamp }) {
         {/* Decor */}
         <Trophy className="absolute right-[-10px] bottom-[-10px] w-20 h-20 text-white opacity-20 rotate-12" />
         
-        <h3 className="font-bold text-base mb-1 flex items-center gap-2">
+        <h3 className="font-bold text-base mb-1 flex items-center gap-2 font-serif">
           <AlertCircle className="w-4 h-4 fill-yellow-400 text-green-600" />
-          Urgent Mission!
+          Travel the World to Meet Thaoxinh!
         </h3>
         <ul className="text-xs space-y-1 font-medium z-10 relative">
           <li className="flex items-start gap-1">
-            <span>🔥</span> 3-in-a-row to feed Thaibeo <strong>+30 kg!</strong>
+            <span>✈️</span> Travel to 3 countries in a row to gain strength: <strong>+30 kg!</strong>
           </li>
           <li className="flex items-start gap-1">
-            <span>🏆</span> Entire board for a massive <strong>+100 kg feast!</strong>
+            <span>🌍</span> Travel to all countries for a massive <strong>+100 kg feast!</strong>
           </li>
         </ul>
         {timeRemainingMsg && (
@@ -131,7 +128,7 @@ export default function BingoSection({ gameState, addStamp }) {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-3 gap-2 bg-white p-2 rounded-2xl shadow-sm border border-slate-100 relative flex-1 my-2 min-h-0">
+      <div className="grid grid-cols-3 gap-2 bg-[#FFFAF0] p-2 rounded-2xl shadow-md border border-amber-200 relative flex-1 my-2 min-h-0 bg-[url('https://www.transparenttextures.com/patterns/beige-paper.png')]">
         
         {/* Grid lines styling to look like a map / passport page */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#4ade80_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl"></div>
@@ -152,7 +149,7 @@ export default function BingoSection({ gameState, addStamp }) {
                 className={`w-full h-full rounded-full flex flex-col items-center justify-center p-2 text-center cursor-pointer transition-all duration-300
                   ${isStamped 
                     ? `border-[3px] border-double ${inkColor} bg-white shadow-sm scale-110 ${rotation} opacity-90 mix-blend-multiply` 
-                    : 'border-2 border-dashed border-slate-200 bg-slate-50 hover:border-green-300 hover:bg-green-50 hover:scale-105 opacity-60'
+                    : 'border-2 border-dashed border-amber-300 bg-amber-50/50 hover:border-amber-400 hover:bg-amber-100 hover:scale-105 opacity-80'
                   }
                 `}
               >
@@ -181,7 +178,7 @@ export default function BingoSection({ gameState, addStamp }) {
       </div>
 
       {/* Travel Progress Bar (Sticky at bottom of Bingo Section) */}
-      <div className="bg-white rounded-2xl p-3 shadow-sm border border-pink-100 relative flex-shrink-0 mt-auto">
+      <div className="bg-[#FFFAF0] rounded-2xl p-3 shadow-md border border-amber-200 relative flex-shrink-0 mt-auto bg-[url('https://www.transparenttextures.com/patterns/beige-paper.png')]">
         <p className="text-[10px] font-bold text-slate-500 text-center mb-4 uppercase tracking-wider">
           Journey to Thaoxinh: {stampCount}/9
         </p>
@@ -238,7 +235,16 @@ export default function BingoSection({ gameState, addStamp }) {
             {successMsg ? (
               <div className="flex flex-col items-center py-6 text-green-600 animate-in fade-in duration-300">
                 <CheckCircle2 className="w-16 h-16 mb-4 animate-bounce" />
-                <p className="font-bold text-center text-lg">{successMsg}</p>
+                <p className="font-bold text-center text-lg mb-6 font-serif">{successMsg}</p>
+                <button 
+                  onClick={() => {
+                    setSelectedSquare(null);
+                    document.querySelector('button:has(.lucide-home)')?.click();
+                  }}
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-400 hover:from-green-600 hover:to-emerald-500 text-white font-bold py-3.5 px-4 rounded-2xl transition-all shadow-lg shadow-green-200 border border-green-400 active:scale-95"
+                >
+                  Deed completed! View Thaibeo! 🐷
+                </button>
               </div>
             ) : (
               <div className="space-y-4 animate-in fade-in duration-300">
