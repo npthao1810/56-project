@@ -1,4 +1,4 @@
-export default function Thaibeo({ className = "", scale = 1, weight = 0, isEating = false, hasBackpack = false, isBackview = false, showName = false }) {
+export default function Thaibeo({ className = "", scale = 1, weight = 0, isEating = false, isAngry = false, hasBackpack = false, isBackview = false, showName = false }) {
   // Determine fatness stage based on weight (0 to 100kg+ maps to 0.0 to 1.0)
   // At 100kg, fatFactor is 1.
   const fatFactor = Math.min(1, Math.max(0, weight / 100));
@@ -90,7 +90,15 @@ export default function Thaibeo({ className = "", scale = 1, weight = 0, isEatin
             <ellipse cx={140 + 25 * fatFactor} cy="115" rx={12 + 23 * fatFactor} ry={8 + 17 * fatFactor} fill="#f472b6" opacity="0.6" />
 
             {/* Eyes */}
-            {isEating ? (
+            {isAngry ? (
+              <g transform={`translate(0, ${2 * fatFactor})`}>
+                <circle cx={75 - 10 * fatFactor} cy="95" r={6 - 4 * fatFactor} fill="#1e293b" />
+                <circle cx={125 + 10 * fatFactor} cy="95" r={6 - 4 * fatFactor} fill="#1e293b" />
+                {/* Angry Eyebrows */}
+                <path d={`M ${60 - 5 * fatFactor} 88 L ${80 - 15 * fatFactor} 95`} stroke="#1e293b" strokeWidth={4 - 2 * fatFactor} strokeLinecap="round" />
+                <path d={`M ${140 + 5 * fatFactor} 88 L ${120 + 15 * fatFactor} 95`} stroke="#1e293b" strokeWidth={4 - 2 * fatFactor} strokeLinecap="round" />
+              </g>
+            ) : isEating ? (
               <g transform={`translate(0, ${2 * fatFactor})`}>
                 <path d={`M ${65 - 10 * fatFactor} 95 Q ${75 - 10 * fatFactor} ${85 + 5 * fatFactor} ${85 - 10 * fatFactor} 95`} fill="none" stroke="#1e293b" strokeWidth={4 - 2 * fatFactor} strokeLinecap="round" />
                 <path d={`M ${115 + 10 * fatFactor} 95 Q ${125 + 10 * fatFactor} ${85 + 5 * fatFactor} ${135 + 10 * fatFactor} 95`} fill="none" stroke="#1e293b" strokeWidth={4 - 2 * fatFactor} strokeLinecap="round" />
