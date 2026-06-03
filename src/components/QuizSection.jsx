@@ -102,7 +102,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
 
   const handleDismissCorrectPopup = () => {
     setShowCorrectPopup(false);
-    completeQuiz(currentQuiz.id, currentQuiz.points || 10, true);
+    completeQuiz(currentQuiz.id, currentQuiz.points || 5, true);
     setHasStarted(false);
     setMessages([]);
   };
@@ -177,7 +177,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
           </h3>
           <p className="text-sm text-slate-500 mb-8 font-medium">
             {activeQuizIndex !== -1 
-              ? "Answer correctly to prove your identity, bring them closer, and feed Thaibeo +10 kg!" 
+              ? "Answer correctly to prove your identity, bring them closer, and feed Thaibeo +5 kg!" 
               : finalMessage}
           </p>
 
@@ -302,7 +302,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
             )}
             
             <div className="bg-pink-500 text-white font-black text-xl px-6 py-2 rounded-full shadow-lg border-4 border-white animate-[pulse_1s_ease-in-out_infinite] mb-4">
-              +10 KG for Thaibeo!
+              +5 KG for Thaibeo!
             </div>
             
             <button 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const STORAGE_KEY = 'anniversary_quest_state';
 
 const defaultState = {
-  weight: 10, // Starting weight in kg
+  weight: 5, // Starting weight in kg
   completedQuizzes: [],
   stamps: [], 
   purchasedCoupons: [],
@@ -17,7 +17,7 @@ export function useGameState() {
       if (item) {
         const parsed = JSON.parse(item);
         if (parsed.points !== undefined && parsed.weight === undefined) {
-          parsed.weight = parsed.points > 0 ? parsed.points : 10;
+          parsed.weight = parsed.points > 0 ? parsed.points : 5;
           delete parsed.points;
         }
         if (!parsed.sidequestFoodsEaten) {
@@ -98,7 +98,7 @@ export function useGameState() {
       return {
         ...prev,
         sidequestFoodsEaten: [...recentFoods, now.toISOString()],
-        weight: parseFloat((prev.weight + 0.05).toFixed(2)) // +50 grams
+        weight: parseFloat((prev.weight + 0.2).toFixed(2)) // +200 grams
       };
     });
   };

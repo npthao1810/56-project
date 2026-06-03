@@ -83,10 +83,10 @@ export default function BingoSection({ gameState, addStamp }) {
       const linesGained = newLines - oldLines;
       
       let baseReward = 5; // 5 kg base
-      let totalReward = baseReward + (linesGained * 10);
+      let totalReward = baseReward + (linesGained * 5);
       
       if (newStamps.length === 9) {
-        totalReward += 50; // Full board bonus
+        totalReward += 30; // Full board bonus
       }
 
       addStamp(selectedSquare.id, totalReward);
@@ -113,10 +113,10 @@ export default function BingoSection({ gameState, addStamp }) {
         </h3>
         <ul className="text-xs space-y-1 font-medium z-10 relative">
           <li className="flex items-start gap-1">
-            <span>✈️</span> Travel to 3 countries in a row to gain strength: <strong>+30 kg!</strong>
+            <span>✈️</span> Travel to 3 countries in a row to gain strength: <strong>+5 kg!</strong>
           </li>
           <li className="flex items-start gap-1">
-            <span>🌍</span> Travel to all countries for a massive <strong>+100 kg feast!</strong>
+            <span>🌍</span> Travel to all countries for a massive <strong>+30 kg feast!</strong>
           </li>
         </ul>
         {timeRemainingMsg && (

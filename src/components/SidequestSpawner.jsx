@@ -88,7 +88,7 @@ export default function SidequestSpawner({ canEatSidequestFood, feedSidequestFoo
             pointerEvents: 'none'
           }}
         >
-          +50g
+          +0.2kg
         </div>
       )}
     </>
