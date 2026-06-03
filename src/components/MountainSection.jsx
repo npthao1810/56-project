@@ -71,6 +71,15 @@ export default function MountainSection({ gameState, claimReward }) {
             </button>
           </div>
         </div>
+        
+        {currentClimb >= 100 && (
+          <div className="bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-lg border-2 border-pink-400 text-center animate-in slide-in-from-top-4 duration-500 mt-2">
+            <h3 className="text-base font-black text-pink-500 mb-0.5">Yayy you did it! 🎉</h3>
+            <p className="text-xs font-bold text-slate-600 leading-tight">
+              You carried your princess to the top. Now it's time to choose your reward!
+            </p>
+          </div>
+        )}
       </div>
 
       {/* The Mountain Container */}
@@ -90,7 +99,7 @@ export default function MountainSection({ gameState, claimReward }) {
         <div 
           className="absolute z-30 transition-all duration-1000 ease-out"
           style={{ 
-            bottom: `calc(10px + ${climbPercentage}% * 0.85)`,
+            bottom: `calc(10px + ${climbPercentage}% * 0.70)`,
             left: `calc(50% + ${getZigzagOffset(currentClimb, maxWeight)}px)`,
             transform: 'translateX(-50%)'
           }}
@@ -101,7 +110,7 @@ export default function MountainSection({ gameState, claimReward }) {
             <div className="w-3 h-3 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full border border-white shadow-md z-10"></div>
             
             {/* Thaibeo & Thaoxinh perfectly close together centered above dot */}
-            <div className="absolute left-1/2 bottom-2 -translate-x-1/2 flex items-end justify-center pointer-events-none origin-bottom scale-[0.35]">
+            <div className={`absolute left-1/2 -translate-x-1/2 flex items-end justify-center pointer-events-none origin-bottom scale-[0.35] transition-all duration-500 ${currentClimb >= 100 ? 'bottom-12' : 'bottom-2'}`}>
               <div className="z-20">
                 <Thaibeo weight={gameState.weight} hasBackpack={true} showName={false} />
               </div>
@@ -123,7 +132,7 @@ export default function MountainSection({ gameState, claimReward }) {
             <div
               key={reward.id}
               className="absolute left-1/2 -translate-x-1/2 w-full flex justify-center z-20"
-              style={{ bottom: `calc(10px + ${posPercent}% * 0.85)` }}
+              style={{ bottom: `calc(10px + ${posPercent}% * 0.70)` }}
             >
               {/* Branch off to left or right alternating */}
               <div className={`relative flex items-center gap-3 w-64 ${reward.cost % 40 === 0 ? 'flex-row-reverse -translate-x-8' : 'translate-x-8'}`}>
@@ -162,7 +171,7 @@ export default function MountainSection({ gameState, claimReward }) {
                     {reward.cost} KG
                   </span>
                   <span className={`text-sm font-bold drop-shadow-sm ${isUnlocked && !fullyClaimed ? 'text-slate-800' : 'text-slate-500'}`}>
-                    {reward.isSecret && !fullyClaimed ? "???" : reward.name}
+                    {reward.isSecret && !isUnlocked ? "???" : reward.name}
                   </span>
                 </div>
 

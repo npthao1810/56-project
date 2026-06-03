@@ -65,7 +65,7 @@
   },
   {
     "id": "the-summit",
-    "name": "The Summit",
+    "name": "Reached the Peak!",
     "cost": 100,
     "icon": "👑",
     "isSecret": true,

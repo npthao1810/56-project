@@ -12,23 +12,17 @@ const defaultState = {
 
 export function useGameState() {
   const [gameState, setGameState] = useState(() => {
+    // TEMPORARY TEST CASE: Force 100kg
     try {
       const item = window.localStorage.getItem(STORAGE_KEY);
       if (item) {
         const parsed = JSON.parse(item);
-        if (parsed.points !== undefined && parsed.weight === undefined) {
-          parsed.weight = parsed.points > 0 ? parsed.points : 5;
-          delete parsed.points;
-        }
-        if (!parsed.sidequestFoodsEaten) {
-          parsed.sidequestFoodsEaten = [];
-        }
-        return parsed;
+        if (!parsed.sidequestFoodsEaten) parsed.sidequestFoodsEaten = [];
+        return { ...parsed, weight: 100 };
       }
-      return defaultState;
+      return { ...defaultState, weight: 100 };
     } catch (error) {
-      console.warn("Error reading localStorage", error);
-      return defaultState;
+      return { ...defaultState, weight: 100 };
     }
   });
 
