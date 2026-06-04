@@ -19,6 +19,12 @@ export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
   const [isRevealing, setIsRevealing] = useState(false);
   const [showEvidence, setShowEvidence] = useState(false);
 
+  const getPublicUrl = (path) => {
+    if (!path) return '';
+    const base = import.meta.env.BASE_URL;
+    return `${base}${path.replace(/^\//, '')}`;
+  };
+
   const chatEndRef = useRef(null);
 
   // Find the first uncompleted quiz
@@ -263,7 +269,7 @@ export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
                   : 'bg-white text-slate-800 rounded-tl-none border border-pink-100 shadow-sm'
                   }`}>
                   {msg.isImage ? (
-                    <img src={msg.text} alt="Evidence" className="rounded-xl mt-1 max-w-full h-auto object-cover border border-slate-100 shadow-sm" />
+                    <img src={getPublicUrl(msg.text)} alt="Evidence" className="rounded-xl mt-1 max-w-full h-auto object-cover border border-slate-100 shadow-sm" />
                   ) : (
                     <p className="text-sm">{msg.text}</p>
                   )}
@@ -343,7 +349,7 @@ export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
                 ) : (
                   <div className="relative p-1 bg-green-100 rounded-xl w-full mb-4">
                     <img
-                      src={currentQuiz.evidenceImage}
+                      src={getPublicUrl(currentQuiz.evidenceImage)}
                       alt="Evidence"
                       className="rounded-lg w-full h-auto opacity-90"
                     />
@@ -404,7 +410,7 @@ export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
                 ) : (
                   <div className="relative p-1 bg-red-100 rounded-xl w-full mb-4">
                     <img
-                      src={wrongPopupData.img}
+                      src={getPublicUrl(wrongPopupData.img)}
                       alt="Evidence"
                       className="rounded-lg w-full h-auto opacity-90 sepia-[0.2]"
                     />
