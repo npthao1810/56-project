@@ -21,9 +21,10 @@ const getZigzagOffset = (weight, maxWeight) => {
   }
 };
 
-export default function MountainSection({ gameState, claimReward }) {
+export default function MountainSection({ gameState, claimReward, resetWeight }) {
   const [selectedReward, setSelectedReward] = useState(null);
   const [showBackpack, setShowBackpack] = useState(false);
+  const [showTrapPopup, setShowTrapPopup] = useState(false);
 
   // Highest milestone is 100
   const maxWeight = 100;
@@ -34,6 +35,12 @@ export default function MountainSection({ gameState, claimReward }) {
   const climbPercentage = (currentClimb / maxWeight) * 100;
 
   const handleClaim = (choiceId, cost) => {
+    if (choiceId === 'snow-a') {
+      setSelectedReward(null);
+      resetWeight();
+      setShowTrapPopup(true);
+      return;
+    }
     claimReward(selectedReward.id, choiceId, cost);
     setSelectedReward(null);
   };
@@ -348,6 +355,28 @@ export default function MountainSection({ gameState, claimReward }) {
         </div>
       )}
 
+      {/* Trap Popup */}
+      {showTrapPopup && (
+        <div className="absolute inset-0 z-50 bg-slate-900/90 backdrop-blur-md flex flex-col items-center justify-center p-6 animate-in fade-in duration-200">
+          <div className="bg-slate-800 border-2 border-red-500 rounded-3xl p-8 shadow-2xl w-full max-w-sm flex flex-col items-center text-center animate-[shake_0.5s_ease-in-out]">
+            <div className="text-6xl mb-4">
+              ☠️
+            </div>
+            <h2 className="text-2xl font-black text-red-500 mb-4 uppercase tracking-tight">
+              It's a Trap!
+            </h2>
+            <p className="text-slate-300 font-bold mb-8">
+              Oh no! You have lost all your points and fell back down the mountain!
+            </p>
+            <button
+              onClick={() => setShowTrapPopup(false)}
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all active:scale-95"
+            >
+              Start climbing again...
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

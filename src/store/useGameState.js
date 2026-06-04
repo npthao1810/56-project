@@ -82,6 +82,13 @@ export function useGameState() {
     });
   };
 
+  const resetWeight = () => {
+    setGameState(prev => ({
+      ...prev,
+      weight: 5 // Reset to starting weight
+    }));
+  };
+
   const feedSidequestFood = () => {
     const now = new Date();
     const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000);
@@ -148,6 +155,7 @@ export function useGameState() {
     feedSidequestFood,
     canEatSidequestFood,
     claimReward,
+    resetWeight,
     resetGame
   };
 }

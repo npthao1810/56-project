@@ -180,7 +180,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
           </div>
 
           <h3 className="text-xl font-bold text-slate-800 mb-2 font-serif">
-            {activeQuizIndex !== -1 ? "The Boyfriend Verification Trial!" : finalTitle}
+            {activeQuizIndex !== -1 ? "Are you Thaoxinh's boyfriend? Let's check!" : finalTitle}
           </h3>
           <p className="text-sm text-slate-500 mb-8 font-medium">
             {activeQuizIndex !== -1
@@ -296,7 +296,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
             {currentQuiz?.evidenceImage && (
               <>
                 {!showEvidence ? (
-                  <button 
+                  <button
                     onClick={() => setShowEvidence(true)}
                     className="mb-4 bg-green-100 hover:bg-green-200 text-green-700 font-bold py-2 px-6 rounded-full border border-green-300 transition-colors shadow-sm animate-pulse"
                   >
@@ -326,7 +326,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
               onClick={handleDismissCorrectPopup}
               className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-[0_4px_0_0_rgb(22,163,74)] active:translate-y-[4px] active:shadow-none"
             >
-              Continue Trial
+              Continue to verify
             </button>
           </div>
         </div>
@@ -357,7 +357,7 @@ export default function QuizSection({ gameState, completeQuiz }) {
             {wrongPopupData.img && (
               <>
                 {!showEvidence ? (
-                  <button 
+                  <button
                     onClick={() => setShowEvidence(true)}
                     className="mb-4 bg-orange-100 hover:bg-orange-200 text-orange-700 font-bold py-2 px-6 rounded-full border border-orange-300 transition-colors shadow-sm animate-pulse"
                   >

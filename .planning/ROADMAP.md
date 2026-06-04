@@ -12,7 +12,8 @@ We are building a vibrant, backend-free web application to celebrate a 2-year an
 - [x] **Phase 2.6: Thaibeo Universe Expansion (INSERTED)** - Add Thaoxinh and immersive character interactions.
 - [x] **Phase 2.7: Sidequests & Home Refinement (INSERTED)** - Add random food drops.
 - [x] **Phase 3: Reward Shop & Integration** - Build the reward shop and integrate the points system.
-- [ ] **Phase 4: Final Polish & User Journey** - Fix visual bugs, dynamic character spacing, intro story, and tab flow.
+- [x] **Phase 4: Final Polish & User Journey** - Fix visual bugs, dynamic character spacing, intro story, and tab flow.
+- [x] **Phase 5: Reminders & Traps (INSERTED)** - Add trap mechanics to Mountain tab and deadlines to Bingo tab.
 
 ## Phase Details
 

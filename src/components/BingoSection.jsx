@@ -55,21 +55,21 @@ export default function BingoSection({ gameState, addStamp }) {
   const handleVerify = () => {
     if (passcode === selectedSquare.passcode) {
       setSuccessMsg(`Correct! You've arrived in ${selectedSquare.country}! ✈️`);
-      
+
       // Calculate bonuses
       const oldStamps = gameState.stamps;
       const newStamps = [...oldStamps, { id: selectedSquare.id }];
-      
+
       // Helper to check lines
       const checkLines = (stampsArr) => {
         const stampIds = stampsArr.map(s => s.id);
         let lines = 0;
         const winningCombos = [
-          [0,1,2], [3,4,5], [6,7,8], // rows
-          [0,3,6], [1,4,7], [2,5,8], // cols
-          [0,4,8], [2,4,6]           // diagonals
+          [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+          [0, 3, 6], [1, 4, 7], [2, 5, 8], // cols
+          [0, 4, 8], [2, 4, 6]           // diagonals
         ];
-        
+
         winningCombos.forEach(combo => {
           if (combo.every(idx => stampIds.includes(bingoData[idx].id))) {
             lines++;
@@ -81,10 +81,10 @@ export default function BingoSection({ gameState, addStamp }) {
       const oldLines = checkLines(oldStamps);
       const newLines = checkLines(newStamps);
       const linesGained = newLines - oldLines;
-      
+
       let baseReward = 5; // 5 kg base
       let totalReward = baseReward + (linesGained * 5);
-      
+
       if (newStamps.length === 9) {
         totalReward += 30; // Full board bonus
       }
@@ -101,12 +101,12 @@ export default function BingoSection({ gameState, addStamp }) {
 
   return (
     <div className="flex flex-col relative h-[calc(100vh-180px)] justify-between pb-4">
-      
+
       {/* Motivation Banner */}
       <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl p-3 text-white shadow-md relative overflow-hidden flex-shrink-0">
         {/* Decor */}
         <Trophy className="absolute right-[-10px] bottom-[-10px] w-20 h-20 text-white opacity-20 rotate-12" />
-        
+
         <h3 className="font-bold text-base mb-1 flex items-center gap-2 font-serif">
           <AlertCircle className="w-4 h-4 fill-yellow-400 text-green-600" />
           Travel the World to Meet Thaoxinh!
@@ -116,9 +116,13 @@ export default function BingoSection({ gameState, addStamp }) {
             <span>✈️</span> Travel to 3 countries in a row to gain strength: <strong>+5 kg!</strong>
           </li>
           <li className="flex items-start gap-1">
-            <span>🌍</span> Travel to all countries for a massive <strong>+30 kg feast!</strong>
+            <span>✈️</span> Travel to all countries for a massive <strong>+30 kg feast!</strong>
           </li>
         </ul>
+        <div className="mt-2 text-xs font-bold bg-red-500 px-3 py-2 rounded-lg border border-red-600 text-white flex items-center gap-1.5 shadow-md">
+          <span className="text-base drop-shadow-sm">⏰</span>
+          <span className="tracking-wide">Reminder: Complete all challenges before <strong className="text-yellow-200 uppercase tracking-widest">6 PM, 5/6</strong>!</span>
+        </div>
         {timeRemainingMsg && (
           <div className="mt-2 bg-red-500/20 px-2 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 backdrop-blur-sm">
             <Clock className="w-3 h-3" />
@@ -129,7 +133,7 @@ export default function BingoSection({ gameState, addStamp }) {
 
       {/* Grid */}
       <div className="grid grid-cols-3 gap-2 bg-[#FFFAF0] p-2 rounded-2xl shadow-md border border-amber-200 relative flex-1 my-2 min-h-0 bg-[url('https://www.transparenttextures.com/patterns/beige-paper.png')]">
-        
+
         {/* Grid lines styling to look like a map / passport page */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#4ade80_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl"></div>
 
@@ -138,17 +142,17 @@ export default function BingoSection({ gameState, addStamp }) {
           // Alternate stamp colors just to look cool (Red or Blue ink)
           const inkColor = index % 2 === 0 ? 'border-red-500 text-red-600' : 'border-blue-500 text-blue-600';
           const rotation = index % 2 === 0 ? '-rotate-12' : 'rotate-6';
-          
+
           return (
-            <div 
+            <div
               key={square.id}
               onClick={() => handleSquareClick(square)}
-              className="aspect-square flex items-center justify-center p-1 relative z-10"
+              className="relative z-10 w-full h-full min-h-0 flex items-center justify-center p-1 overflow-hidden"
             >
-              <div 
-                className={`w-full h-full rounded-full flex flex-col items-center justify-center p-2 text-center cursor-pointer transition-all duration-300
-                  ${isStamped 
-                    ? `border-[3px] border-double ${inkColor} bg-white shadow-sm scale-110 ${rotation} opacity-90 mix-blend-multiply` 
+              <div
+                className={`h-full max-w-full aspect-square rounded-full flex flex-col items-center justify-center p-1 text-center cursor-pointer transition-all duration-300
+                  ${isStamped
+                    ? `border-[3px] border-double ${inkColor} bg-white shadow-sm scale-110 ${rotation} opacity-90 mix-blend-multiply`
                     : 'border-2 border-dashed border-amber-300 bg-amber-50/50 hover:border-amber-400 hover:bg-amber-100 hover:scale-105 opacity-80'
                   }
                 `}
@@ -182,17 +186,17 @@ export default function BingoSection({ gameState, addStamp }) {
         <p className="text-[10px] font-bold text-slate-500 text-center mb-4 uppercase tracking-wider">
           Journey to Thaoxinh: {stampCount}/9
         </p>
-        
+
         {/* The Track */}
         <div className="h-3 bg-slate-100 rounded-full relative w-[85%] mx-auto">
           {/* Fill */}
-          <div 
+          <div
             className="absolute top-0 left-0 bottom-0 bg-green-400 rounded-full transition-all duration-1000"
             style={{ width: `${progressPercent}%` }}
           ></div>
 
           {/* Traveler Thaibeo */}
-          <div 
+          <div
             className="absolute top-1/2 -translate-y-1/2 transition-all duration-1000 z-10"
             style={{ left: `${progressPercent}%`, transform: 'translate(-50%, -60%)' }}
           >
@@ -203,9 +207,9 @@ export default function BingoSection({ gameState, addStamp }) {
 
           {/* Princess Thaoxinh at the Finish Line */}
           <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-10">
-             <div className="w-14 h-14 flex items-center justify-center drop-shadow-md">
-               <Thaoxinh scale={0.4} isHappy={stampCount === 9} />
-             </div>
+            <div className="w-14 h-14 flex items-center justify-center drop-shadow-md">
+              <Thaoxinh scale={0.4} isHappy={stampCount === 9} />
+            </div>
           </div>
         </div>
       </div>
@@ -223,9 +227,9 @@ export default function BingoSection({ gameState, addStamp }) {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-2xl border border-green-100 mb-6 shadow-inner relative overflow-hidden">
-               {/* Watermark icon */}
+              {/* Watermark icon */}
               <span className="absolute -right-4 -bottom-4 text-6xl opacity-10 grayscale">{selectedSquare.icon}</span>
               <p className="text-base text-green-900 font-semibold text-center relative z-10 leading-relaxed">
                 "{selectedSquare.challenge}"
@@ -236,7 +240,7 @@ export default function BingoSection({ gameState, addStamp }) {
               <div className="flex flex-col items-center py-6 text-green-600 animate-in fade-in duration-300">
                 <CheckCircle2 className="w-16 h-16 mb-4 animate-bounce" />
                 <p className="font-bold text-center text-lg mb-6 font-serif">{successMsg}</p>
-                <button 
+                <button
                   onClick={() => {
                     setSelectedSquare(null);
                     document.getElementById('nav-home-btn')?.click();
@@ -253,17 +257,17 @@ export default function BingoSection({ gameState, addStamp }) {
                 ) : (
                   <p className="text-sm text-slate-500 text-center font-medium">Enter the secret passcode to unlock!</p>
                 )}
-                
-                <input 
-                  type="text" 
+
+                <input
+                  type="text"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   placeholder="****"
                   className="w-full text-center text-3xl tracking-[0.5em] font-mono bg-slate-50 border-2 border-slate-200 rounded-xl py-4 px-4 focus:outline-none focus:border-green-400 focus:ring-4 focus:ring-green-100 transition-all placeholder:opacity-30"
                   maxLength={4}
                 />
-                
-                <button 
+
+                <button
                   onClick={handleVerify}
                   className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-[0_4px_0_0_rgb(22,163,74)] hover:shadow-[0_2px_0_0_rgb(22,163,74)] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none"
                 >
