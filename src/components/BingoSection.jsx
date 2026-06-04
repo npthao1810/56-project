@@ -108,8 +108,7 @@ export default function BingoSection({ gameState, addStamp }) {
         <Trophy className="absolute right-[-10px] bottom-[-10px] w-20 h-20 text-white opacity-20 rotate-12" />
 
         <h3 className="font-bold text-base mb-1 flex items-center gap-2 font-serif">
-          <AlertCircle className="w-4 h-4 fill-yellow-400 text-green-600" />
-          Travel the World to Meet Thaoxinh!
+          Ask for the passcode after each challenge
         </h3>
         <ul className="text-xs space-y-1 font-medium z-10 relative">
           <li className="flex items-start gap-1">
@@ -247,7 +246,7 @@ export default function BingoSection({ gameState, addStamp }) {
                   }}
                   className="w-full bg-gradient-to-r from-green-500 to-emerald-400 hover:from-green-600 hover:to-emerald-500 text-white font-bold py-3.5 px-4 rounded-2xl transition-all shadow-lg shadow-green-200 border border-green-400 active:scale-95"
                 >
-                  Deed completed! View Thaibeo! 🐷
+                  All stamps are collected! View Thaibeo! 🐷
                 </button>
               </div>
             ) : (

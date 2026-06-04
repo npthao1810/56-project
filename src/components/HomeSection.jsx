@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Thaibeo from './Thaibeo';
 import Thaoxinh from './Thaoxinh';
+import { Info, MapPin, MessageCircleQuestion, MountainSnow, AlertTriangle } from 'lucide-react';
 
 export default function HomeSection({ gameState }) {
   const { weight } = gameState;
@@ -110,6 +111,56 @@ export default function HomeSection({ gameState }) {
         >
           Start the Journey 🏔️
         </button>
+      </div>
+
+      {/* How to Play Guidelines */}
+      <div className="w-full bg-white rounded-3xl p-6 shadow-md border border-pink-100 mt-6 relative">
+        <div className="flex items-center gap-2 mb-4">
+          <Info className="w-5 h-5 text-pink-500" />
+          <h3 className="text-lg font-bold text-slate-800 font-serif">How to Play</h3>
+        </div>
+        
+        <div className="space-y-4">
+          
+          <div className="flex gap-3 items-start">
+            <div className="bg-blue-100 p-2 rounded-xl shrink-0 mt-0.5">
+              <MessageCircleQuestion className="w-4 h-4 text-blue-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-sm text-slate-800">1. Boyfriend Verification (Quiz)</h4>
+              <p className="text-xs text-slate-500 font-medium leading-relaxed mt-1">
+                Answer questions about your relationship correctly to gain a steady stream of points. <strong className="text-pink-500">You should do this when you are with Thaoxinh!</strong>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex gap-3 items-start">
+            <div className="bg-amber-100 p-2 rounded-xl shrink-0 mt-0.5">
+              <MapPin className="w-4 h-4 text-amber-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-sm text-slate-800">2. Travel Mission (Bingo)</h4>
+              <ul className="text-xs text-slate-500 font-medium leading-relaxed mt-1 space-y-1">
+                <li>• <strong className="text-slate-700">Step 1:</strong> Click the stamp to see the challenge.</li>
+                <li>• <strong className="text-slate-700">Step 2:</strong> Complete the challenge in real life.</li>
+                <li>• <strong className="text-slate-700">Step 3:</strong> Ask Thaoxinh for the passcode after completing each challenge.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex gap-3 items-start">
+            <div className="bg-emerald-100 p-2 rounded-xl shrink-0 mt-0.5">
+              <MountainSnow className="w-4 h-4 text-emerald-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-sm text-slate-800">3. Climb the Mountain</h4>
+              <p className="text-xs text-slate-500 font-medium leading-relaxed mt-1">
+                After finishing the bingo and quiz, it's time to use your weight to buy your rewards!
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

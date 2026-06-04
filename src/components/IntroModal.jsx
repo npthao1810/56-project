@@ -45,13 +45,16 @@ export default function IntroModal({ isOpen, onClose, onNavigate }) {
               Once upon a time, Princess Thaoxinh found herself stranded at the bottom of the 2 years mountain.
             </p>
             <p>
-              The peak holds beautiful treasures, but the climb is far too steep! Only her true boyfriend, the legendary Thaibeo shaped in a cute pig, can carry her to the top.
+              The peak holds beautiful treasures, but the climb is far too steep! Only her true boyfriend, Thaibeo-the-pig, can carry her to the top.
             </p>
             <p className="text-pink-600 font-bold">
-              But alas, he is currently too small!!!
+              But alas, he is currently too small to be Thaibeo!!!
             </p>
             <p>
-              Verify his identity in the Boyfriend Verification Trial, and help him travel the world to meet her, meanwhile gain enough strength to carry his pricess!
+              Verify your identity in the Boyfriend Verification Trial, then travel the world to meet her, meanwhile gain enough strength to carry his pricess!
+            </p>
+            <p className="font-bold">
+              You should do the "travel" misson first, and come back to do the verification later when you are with Thaoxinh.
             </p>
           </div>
 
@@ -61,7 +64,7 @@ export default function IntroModal({ isOpen, onClose, onNavigate }) {
               onClick={() => onNavigate('quiz')}
               className="w-full py-3.5 px-4 bg-gradient-to-r from-pink-500 to-rose-400 text-white rounded-2xl font-bold shadow-lg shadow-pink-200/50 active:scale-95 transition-transform flex items-center justify-center gap-2 border border-pink-300"
             >
-              Verify Identity
+              Boyfriend Verification
             </button>
             <button
               onClick={() => onNavigate('bingo')}
@@ -73,7 +76,7 @@ export default function IntroModal({ isOpen, onClose, onNavigate }) {
               onClick={onClose}
               className="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider py-2 active:text-slate-600 transition-colors"
             >
-              See what the peak looks like ⛰️
+              See the peak ⛰️
             </button>
           </div>
 
