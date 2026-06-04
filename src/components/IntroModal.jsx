@@ -53,24 +53,15 @@ export default function IntroModal({ isOpen, onClose, onNavigate }) {
             <p>
               Verify your identity in the Boyfriend Verification Trial, then travel the world to meet her, meanwhile gain enough strength to carry his pricess!
             </p>
-            <p className="font-bold">
-              You should do the "travel" misson first, and come back to do the verification later when you are with Thaoxinh.
-            </p>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3">
             <button
-              onClick={() => onNavigate('quiz')}
-              className="w-full py-3.5 px-4 bg-gradient-to-r from-pink-500 to-rose-400 text-white rounded-2xl font-bold shadow-lg shadow-pink-200/50 active:scale-95 transition-transform flex items-center justify-center gap-2 border border-pink-300"
+              onClick={() => onNavigate('home')}
+              className="w-full py-3.5 px-4 bg-gradient-to-r from-blue-500 to-sky-400 text-white rounded-2xl font-bold shadow-lg shadow-blue-200/50 active:scale-95 transition-transform flex items-center justify-center gap-2 border border-blue-300"
             >
-              Boyfriend Verification
-            </button>
-            <button
-              onClick={() => onNavigate('bingo')}
-              className="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 to-teal-400 text-white rounded-2xl font-bold shadow-lg shadow-emerald-200/50 active:scale-95 transition-transform flex items-center justify-center gap-2 border border-emerald-300"
-            >
-              Travel to meet her
+              See how to play
             </button>
             <button
               onClick={onClose}

@@ -114,7 +114,7 @@ export default function HomeSection({ gameState }) {
       </div>
 
       {/* How to Play Guidelines */}
-      <div className="w-full bg-white rounded-3xl p-6 shadow-md border border-pink-100 mt-6 relative">
+      <div id="how-to-play" className="w-full bg-white rounded-3xl p-6 shadow-md border border-pink-100 mt-6 relative">
         <div className="flex items-center gap-2 mb-4">
           <Info className="w-5 h-5 text-pink-500" />
           <h3 className="text-lg font-bold text-slate-800 font-serif">How to Play</h3>

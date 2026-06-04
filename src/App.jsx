@@ -25,6 +25,15 @@ function App() {
   const handleIntroNavigate = (tab) => {
     handleCloseIntro();
     setActiveTab(tab);
+    
+    if (tab === 'home') {
+      setTimeout(() => {
+        const el = document.getElementById('how-to-play');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   };
 
   return (
@@ -111,7 +120,7 @@ function App() {
             className={`flex flex-col items-center justify-center p-2 rounded-2xl flex-1 transition-all duration-300 ${activeTab === 'quiz' ? 'text-pink-600 bg-pink-50' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-600'}`}
           >
             <Heart className={`w-6 h-6 mb-1 ${activeTab === 'quiz' ? 'fill-pink-200 stroke-pink-600' : 'stroke-slate-400'}`} />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Quiz</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider">Verification</span>
           </button>
 
           <button
@@ -119,7 +128,7 @@ function App() {
             className={`flex flex-col items-center justify-center p-2 rounded-2xl flex-1 transition-all duration-300 ${activeTab === 'bingo' ? 'text-green-600 bg-green-50' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-600'}`}
           >
             <CheckSquare className={`w-6 h-6 mb-1 ${activeTab === 'bingo' ? 'fill-green-200 stroke-green-600' : 'stroke-slate-400'}`} />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Bingo</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider">Travel</span>
           </button>
 
           <button
