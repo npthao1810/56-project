@@ -18,10 +18,10 @@ export default function HomeSection({ gameState }) {
   }, []);
 
   // Calculate level based on weight
-  let levelName = "Tiny Thaibeo";
-  if (weight > 30) levelName = "Thaibeo";
-  if (weight > 80) levelName = "Thaibeo the big boy";
-  if (weight >= 100) levelName = "Thaibeo the pig boy";
+  let levelName = "Thaibeo the babi";
+  if (weight > 30) levelName = "Thaibeo the pig";
+  if (weight > 80) levelName = "Thaibeo the big pig";
+  if (weight >= 100) levelName = "Thaibeo the pig pig";
 
   // Goal is strictly 100kg
   const nextLevelGoal = 100;
@@ -32,7 +32,7 @@ export default function HomeSection({ gameState }) {
     <div className="flex flex-col items-center animate-in fade-in duration-500 pt-2 pb-4 h-full">
 
       <div className="text-center mb-4">
-        <h2 className="text-2xl font-extrabold text-pink-500 drop-shadow-sm mb-1 font-serif">The Legendary Thaibeo 🐷</h2>
+        <h2 className="text-2xl font-extrabold text-pink-500 drop-shadow-sm mb-1 font-serif">Meet & Greet</h2>
         <p className="text-sm text-slate-600 font-medium px-4 leading-tight">Feed Thaibeo so he has enough strength to carry Princess Thaoxinh to the peak!</p>
       </div>
 
@@ -119,9 +119,9 @@ export default function HomeSection({ gameState }) {
           <Info className="w-5 h-5 text-pink-500" />
           <h3 className="text-lg font-bold text-slate-800 font-serif">How to Play</h3>
         </div>
-        
+
         <div className="space-y-4">
-          
+
           <div className="flex gap-3 items-start">
             <div className="bg-blue-100 p-2 rounded-xl shrink-0 mt-0.5">
               <MessageCircleQuestion className="w-4 h-4 text-blue-600" />

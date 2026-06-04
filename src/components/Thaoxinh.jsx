@@ -1,20 +1,20 @@
 export default function Thaoxinh({ className = "", scale = 1, isHappy = false, isAngry = false, showName = false }) {
   // Thaoxinh - Human Princess (same cute round style as Thaibeo)
   return (
-    <div 
-      className={`relative inline-block transition-transform duration-1000 ease-out ${className}`} 
+    <div
+      className={`relative inline-block transition-transform duration-1000 ease-out ${className}`}
       style={{ transform: `scale(${scale})` }}
     >
       {showName && (
         <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-pink-500 font-bold text-xs shadow-sm border border-pink-100 whitespace-nowrap z-20">
-          Thaoxinh
+          Hi, I'm Thaoxinh
         </div>
       )}
 
-      <svg 
-        width="180" 
-        height="150" 
-        viewBox="-20 0 240 200" 
+      <svg
+        width="180"
+        height="150"
+        viewBox="-20 0 240 200"
         xmlns="http://www.w3.org/2000/svg"
         className={isHappy ? "animate-bounce" : ""}
       >
@@ -60,7 +60,7 @@ export default function Thaoxinh({ className = "", scale = 1, isHappy = false, i
             {/* Cute lashes (Sad/Normal) */}
             <path d="M 68 98 Q 75 92 82 98" fill="none" stroke="#1e293b" strokeWidth="3" strokeLinecap="round" />
             <path d="M 68 98 L 64 94 M 82 98 L 86 94" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
-            
+
             <path d="M 118 98 Q 125 92 132 98" fill="none" stroke="#1e293b" strokeWidth="3" strokeLinecap="round" />
             <path d="M 118 98 L 114 94 M 132 98 L 136 94" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
           </>
@@ -68,11 +68,11 @@ export default function Thaoxinh({ className = "", scale = 1, isHappy = false, i
 
         {/* Mouth */}
         {isHappy ? (
-           <path d="M 92 135 Q 100 145 108 135 Z" fill="#ef4444" />
+          <path d="M 92 135 Q 100 145 108 135 Z" fill="#ef4444" />
         ) : isAngry ? (
-           <path d="M 94 140 Q 100 132 106 140" fill="none" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" />
+          <path d="M 94 140 Q 100 132 106 140" fill="none" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" />
         ) : (
-           <path d="M 94 135 Q 100 140 106 135" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" />
+          <path d="M 94 135 Q 100 140 106 135" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" />
         )}
       </svg>
     </div>

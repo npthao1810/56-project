@@ -4,20 +4,20 @@ export default function Thaibeo({ className = "", scale = 1, weight = 0, isEatin
   const fatFactor = Math.min(1, Math.max(0, weight / 100));
 
   return (
-    <div 
-      className={`relative inline-block transition-all duration-1000 ease-out ${className}`} 
+    <div
+      className={`relative inline-block transition-all duration-1000 ease-out ${className}`}
       style={{ transform: `scale(${scale})` }}
     >
       {showName && (
         <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-pink-500 font-bold text-xs shadow-sm border border-pink-100 whitespace-nowrap z-20">
-          Thaibeo
+          Hi, I'm Thaibeo
         </div>
       )}
 
-      <svg 
-        width="180" 
-        height="150" 
-        viewBox="-20 0 240 200" 
+      <svg
+        width="180"
+        height="150"
+        viewBox="-20 0 240 200"
         xmlns="http://www.w3.org/2000/svg"
         className={isEating ? "animate-bounce" : ""}
       >
@@ -41,7 +41,7 @@ export default function Thaibeo({ className = "", scale = 1, weight = 0, isEatin
 
             {/* Tail (Curly 'e' at top) */}
             <path d="M 100 55 C 130 30, 90 10, 80 35 C 75 55, 110 65, 120 45" fill="none" stroke="#f472b6" strokeWidth="5" strokeLinecap="round" />
-            
+
             {/* Realistic Butt Crack (from image) */}
             <g transform={`scale(${1 + 0.1 * fatFactor}) translate(${-5 * fatFactor}, 0)`}>
               {/* Hollow circle */}
@@ -117,9 +117,9 @@ export default function Thaibeo({ className = "", scale = 1, weight = 0, isEatin
 
             {/* Mouth */}
             {isEating ? (
-               <path d="M 95 145 Q 100 155 105 145 Z" fill="#be185d" />
+              <path d="M 95 145 Q 100 155 105 145 Z" fill="#be185d" />
             ) : (
-               <path d="M 90 145 Q 100 150 110 145" fill="none" stroke="#be185d" strokeWidth="3" strokeLinecap="round" />
+              <path d="M 90 145 Q 100 150 110 145" fill="none" stroke="#be185d" strokeWidth="3" strokeLinecap="round" />
             )}
 
             {/* Backpack (next to him) */}

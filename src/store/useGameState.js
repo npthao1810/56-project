@@ -89,7 +89,7 @@ export function useGameState() {
     }));
   };
 
-  const feedSidequestFood = () => {
+  const feedSidequestFood = (weightChange = 0.2) => {
     const now = new Date();
     const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000);
     
@@ -105,7 +105,7 @@ export function useGameState() {
       return {
         ...prev,
         sidequestFoodsEaten: [...recentFoods, now.toISOString()],
-        weight: parseFloat((prev.weight + 0.2).toFixed(2)) // +200 grams
+        weight: parseFloat((prev.weight + weightChange).toFixed(2)) 
       };
     });
   };
