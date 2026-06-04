@@ -204,10 +204,16 @@ export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
             !gameState.quizUnlocked ? (
               <div className="w-full max-w-[220px] mx-auto flex flex-col gap-2">
                 <p className="text-xs text-pink-500 font-bold mb-1">Enter Secret Passcode:</p>
+                {passcodeError && (
+                  <p className="text-xs text-red-500 font-bold mb-2 bg-red-50 py-2 rounded-md border border-red-200 animate-shake">
+                    {passcodeError}
+                  </p>
+                )}
                 <input
                   type="text"
                   value={passcode}
-                  onChange={(e) => setPasscode(e.target.value)}
+                  onChange={(e) => { setPasscode(e.target.value); setPasscodeError(''); }}
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleUnlock(); }}
                   placeholder="****"
                   className="w-full text-center text-2xl tracking-[0.3em] font-mono bg-white border-2 border-pink-200 rounded-xl py-3 focus:outline-none focus:border-pink-400 focus:ring-4 focus:ring-pink-100 transition-all placeholder:opacity-30 text-pink-600 font-bold"
                   maxLength={4}
@@ -218,7 +224,6 @@ export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
                 >
                   Unlock Quiz
                 </button>
-                {passcodeError && <p className="text-xs text-red-500 font-bold mt-1 bg-red-50 py-1 rounded-md border border-red-100">{passcodeError}</p>}
               </div>
             ) : (
               <button
