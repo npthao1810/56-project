@@ -9,7 +9,7 @@ import IntroModal from './components/IntroModal';
 import { Home, Heart, CheckSquare, Map } from 'lucide-react';
 
 function App() {
-  const { gameState, completeQuiz, addStamp, canEatSidequestFood, feedSidequestFood, claimReward, resetWeight } = useGameState();
+  const { gameState, completeQuiz, addStamp, canEatSidequestFood, feedSidequestFood, claimReward, resetWeight, unlockQuiz } = useGameState();
   const [activeTab, setActiveTab] = useState('mountain');
 
   // Intro modal logic
@@ -77,7 +77,7 @@ function App() {
               <h2 className="text-2xl font-bold text-slate-800 mb-1 font-serif">Identity Verification 🕵️</h2>
               <p className="text-slate-500 text-sm font-medium">How does Thaoxinh know you are real?</p>
             </div>
-            <QuizSection gameState={gameState} completeQuiz={completeQuiz} />
+            <QuizSection gameState={gameState} completeQuiz={completeQuiz} unlockQuiz={unlockQuiz} />
           </div>
         )}
 

@@ -8,6 +8,7 @@ const defaultState = {
   stamps: [], 
   purchasedCoupons: [],
   sidequestFoodsEaten: [], // Array of ISO timestamp strings
+  quizUnlocked: false,
 };
 
 export function useGameState() {
@@ -22,6 +23,9 @@ export function useGameState() {
         }
         if (!parsed.sidequestFoodsEaten) {
           parsed.sidequestFoodsEaten = [];
+        }
+        if (parsed.quizUnlocked === undefined) {
+          parsed.quizUnlocked = false;
         }
         return parsed;
       }
@@ -143,6 +147,10 @@ export function useGameState() {
     });
   };
 
+  const unlockQuiz = () => {
+    setGameState(prev => ({ ...prev, quizUnlocked: true }));
+  };
+
   const resetGame = () => {
     setGameState(defaultState);
   };
@@ -156,6 +164,7 @@ export function useGameState() {
     canEatSidequestFood,
     claimReward,
     resetWeight,
+    unlockQuiz,
     resetGame
   };
 }

@@ -4,7 +4,10 @@ import { Heart } from 'lucide-react';
 import Thaibeo from './Thaibeo';
 import Thaoxinh from './Thaoxinh';
 
-export default function QuizSection({ gameState, completeQuiz }) {
+export default function QuizSection({ gameState, completeQuiz, unlockQuiz }) {
+  const SECRET_PASSCODE = "1009";
+  const [passcode, setPasscode] = useState('');
+  const [passcodeError, setPasscodeError] = useState('');
   const [activeQuizIndex, setActiveQuizIndex] = useState(-1);
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -46,6 +49,15 @@ export default function QuizSection({ gameState, completeQuiz }) {
 
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleUnlock = () => {
+    if (passcode === SECRET_PASSCODE) {
+      unlockQuiz();
+      setPasscodeError('');
+    } else {
+      setPasscodeError('Incorrect passcode! Ask Thaoxinh! 😤');
+    }
   };
 
   useEffect(() => {
@@ -189,12 +201,33 @@ export default function QuizSection({ gameState, completeQuiz }) {
           </p>
 
           {activeQuizIndex !== -1 ? (
-            <button
-              onClick={handleStartQuiz}
-              className="bg-pink-500 text-white font-bold py-3.5 px-8 rounded-2xl shadow-md hover:bg-pink-600 transition-colors border border-pink-600 active:scale-95"
-            >
-              {gameState.completedQuizzes.length === 0 ? "Start Verification" : "Next Question"}
-            </button>
+            !gameState.quizUnlocked ? (
+              <div className="w-full max-w-[220px] mx-auto flex flex-col gap-2">
+                <p className="text-xs text-pink-500 font-bold mb-1">Enter Secret Passcode:</p>
+                <input
+                  type="text"
+                  value={passcode}
+                  onChange={(e) => setPasscode(e.target.value)}
+                  placeholder="****"
+                  className="w-full text-center text-2xl tracking-[0.3em] font-mono bg-white border-2 border-pink-200 rounded-xl py-3 focus:outline-none focus:border-pink-400 focus:ring-4 focus:ring-pink-100 transition-all placeholder:opacity-30 text-pink-600 font-bold"
+                  maxLength={4}
+                />
+                <button
+                  onClick={handleUnlock}
+                  className="bg-pink-500 text-white font-bold py-3 rounded-xl shadow-md hover:bg-pink-600 transition-colors border border-pink-600 active:scale-95 text-sm"
+                >
+                  Unlock Quiz
+                </button>
+                {passcodeError && <p className="text-xs text-red-500 font-bold mt-1 bg-red-50 py-1 rounded-md border border-red-100">{passcodeError}</p>}
+              </div>
+            ) : (
+              <button
+                onClick={handleStartQuiz}
+                className="bg-pink-500 text-white font-bold py-3.5 px-8 rounded-2xl shadow-md hover:bg-pink-600 transition-colors border border-pink-600 active:scale-95"
+              >
+                {gameState.completedQuizzes.length === 0 ? "Start Verification" : "Next Question"}
+              </button>
+            )
           ) : (
             <button
               onClick={() => document.getElementById('nav-home-btn')?.click()}
